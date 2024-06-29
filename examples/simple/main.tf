@@ -1,6 +1,7 @@
 provider "aws" {
   region = "us-east-1"
-  #  region = "us-east-1"
+  shared_credentials_files = ["~/.aws/credentials"]
+  profile                  = "aws-dev"
 
   # Make it faster by skipping something
   skip_metadata_api_check     = true
@@ -11,23 +12,6 @@ provider "aws" {
 resource "random_pet" "this" {
   length = 2
 }
-
-#module "lambda_at_edge" {
-#  source = "../../"
-#
-#  function_name = "${random_pet.this.id}-lambda-edge"
-#  handler       = "index.lambda_handler"
-#  runtime       = "python3.12"
-#  lambda_at_edge = true
-#
-#  attach_cloudwatch_logs_policy = true
-#
-#  source_path = "${path.module}/../fixtures/python-app1/"
-#}
-
-#resource "aws_cloudwatch_log_group" "this" {
-#  name = "/aws/lambda/us-east-1.${random_pet.this.id}-lambda-simple"
-#}
 
 module "lambda_function" {
   source = "../../"

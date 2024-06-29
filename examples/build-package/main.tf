@@ -1,5 +1,7 @@
 provider "aws" {
   region = "us-east-1"
+  shared_credentials_files = ["~/.aws/credentials"]
+  profile                  = "aws-dev"
 
   # Make it faster by skipping something
   skip_metadata_api_check     = true
