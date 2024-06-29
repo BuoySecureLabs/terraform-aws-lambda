@@ -15,7 +15,7 @@ data "aws_ecr_authorization_token" "token" {}
 
 provider "docker" {
   registry_auth {
-    address  = "835367859852.dkr.ecr.eu-west-1.amazonaws.com"
+    address  = "835367859852.dkr.ecr.us-east-1.amazonaws.com"
     username = data.aws_ecr_authorization_token.token.user_name
     password = data.aws_ecr_authorization_token.token.password
   }

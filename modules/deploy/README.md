@@ -60,12 +60,12 @@ module "deploy" {
     start = {
       events     = ["DeploymentStart"]
       name       = "DeploymentStart"
-      target_arn = "arn:aws:sns:eu-west-1:135367859851:sns1"
+      target_arn = "arn:aws:sns:us-east-1:135367859851:sns1"
     }
     success = {
       events     = ["DeploymentSuccess"]
       name       = "DeploymentSuccess"
-      target_arn = "arn:aws:sns:eu-west-1:135367859851:sns2"
+      target_arn = "arn:aws:sns:us-east-1:135367859851:sns2"
     }
   }
 }

@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-1"
+  region = "us-east-1"
 
   # Make it faster by skipping something
   skip_metadata_api_check     = true
@@ -43,7 +43,7 @@ module "lambda_function" {
   allowed_triggers = {
     APIGatewayAny = {
       service    = "apigateway"
-      source_arn = "arn:aws:execute-api:eu-west-1:135367859851:aqnku8akd0/*/*/*"
+      source_arn = "arn:aws:execute-api:us-east-1:135367859851:aqnku8akd0/*/*/*"
     }
   }
 
@@ -86,7 +86,7 @@ module "alias_no_refresh" {
     }
     AnotherAPIGatewayAny = { # keys should be unique
       service    = "apigateway"
-      source_arn = "arn:aws:execute-api:eu-west-1:135367859851:abcdedfgse/*/*/*"
+      source_arn = "arn:aws:execute-api:us-east-1:135367859851:abcdedfgse/*/*/*"
     }
   }
 
@@ -129,7 +129,7 @@ module "alias_existing" {
     }
     ThirdAPIGatewayAny = {
       service    = "apigateway"
-      source_arn = "arn:aws:execute-api:eu-west-1:135367859851:aqnku8akd0/*/*/*"
+      source_arn = "arn:aws:execute-api:us-east-1:135367859851:aqnku8akd0/*/*/*"
     }
   }
 

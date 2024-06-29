@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-1"
+  region = "us-east-1"
 
   # Make it faster by skipping something
   skip_metadata_api_check     = true
@@ -49,7 +49,7 @@ module "vpc" {
   name = random_pet.this.id
   cidr = "10.10.0.0/16"
 
-  azs           = ["eu-west-1a"]
+  azs           = ["us-east-1a"]
   intra_subnets = ["10.10.101.0/24"]
 }
 

@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-1"
+  region = "us-east-1"
 
   # Make it faster by skipping something
   skip_metadata_api_check     = true
@@ -85,7 +85,7 @@ EOF
     dynamodb = {
       effect    = "Allow",
       actions   = ["dynamodb:BatchWriteItem"],
-      resources = ["arn:aws:dynamodb:eu-west-1:052212379155:table/Test"]
+      resources = ["arn:aws:dynamodb:us-east-1:052212379155:table/Test"]
     },
     s3_read = {
       effect    = "Deny",
@@ -182,7 +182,7 @@ EOF
     dynamodb = {
       effect    = "Allow",
       actions   = ["dynamodb:BatchWriteItem"],
-      resources = ["arn:aws:dynamodb:eu-west-1:052212379155:table/Test"]
+      resources = ["arn:aws:dynamodb:us-east-1:052212379155:table/Test"]
     },
     s3_read = {
       effect    = "Deny",

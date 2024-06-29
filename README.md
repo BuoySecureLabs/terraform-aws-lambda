@@ -182,7 +182,7 @@ module "lambda_function_container_image" {
 
   create_package = false
 
-  image_uri    = "132367819851.dkr.ecr.eu-west-1.amazonaws.com/complete-cow:1.0"
+  image_uri    = "132367819851.dkr.ecr.us-east-1.amazonaws.com/complete-cow:1.0"
   package_type = "Image"
 }
 ```
@@ -266,7 +266,7 @@ module "vpc" {
   cidr = "10.10.0.0/16"
 
   # Specify at least one of: intra_subnets, private_subnets, or public_subnets
-  azs           = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  azs           = ["us-east-1a", "us-east-1b", "us-east-1c"]
   intra_subnets = ["10.10.101.0/24", "10.10.102.0/24", "10.10.103.0/24"]
 }
 ```
@@ -299,15 +299,15 @@ module "lambda_function" {
     }
     APIGatewayAny = {
       service    = "apigateway"
-      source_arn = "arn:aws:execute-api:eu-west-1:135367859851:aqnku8akd0/*/*/*"
+      source_arn = "arn:aws:execute-api:us-east-1:135367859851:aqnku8akd0/*/*/*"
     },
     APIGatewayDevPost = {
       service    = "apigateway"
-      source_arn = "arn:aws:execute-api:eu-west-1:135367859851:aqnku8akd0/dev/POST/*"
+      source_arn = "arn:aws:execute-api:us-east-1:135367859851:aqnku8akd0/dev/POST/*"
     },
     OneRule = {
       principal  = "events.amazonaws.com"
-      source_arn = "arn:aws:events:eu-west-1:135367859851:rule/RunDaily"
+      source_arn = "arn:aws:events:us-east-1:135367859851:rule/RunDaily"
     }
   }
 }

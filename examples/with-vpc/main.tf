@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-1"
+  region = "us-east-1"
 
   # Make it faster by skipping something
   skip_metadata_api_check     = true
@@ -35,7 +35,7 @@ module "vpc" {
   name = random_pet.this.id
   cidr = "10.10.0.0/16"
 
-  azs           = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  azs           = ["us-east-1a", "us-east-1b", "us-east-1c"]
   intra_subnets = ["10.10.101.0/24", "10.10.102.0/24", "10.10.103.0/24"]
 
   # Add public_subnets and NAT Gateway to allow access to internet from Lambda

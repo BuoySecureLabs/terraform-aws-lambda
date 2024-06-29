@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-1"
+  region = "us-east-1"
 
   # Make it faster by skipping something
   skip_metadata_api_check     = true
@@ -66,15 +66,15 @@ module "lambda_function" {
     }
     APIGatewayAny = {
       service    = "apigateway"
-      source_arn = "arn:aws:execute-api:eu-west-1:${data.aws_caller_identity.current.account_id}:aqnku8akd0/*/*/*"
+      source_arn = "arn:aws:execute-api:us-east-1:${data.aws_caller_identity.current.account_id}:aqnku8akd0/*/*/*"
     },
     APIGatewayDevPost = {
       service    = "apigateway"
-      source_arn = "arn:aws:execute-api:eu-west-1:${data.aws_caller_identity.current.account_id}:aqnku8akd0/dev/POST/*"
+      source_arn = "arn:aws:execute-api:us-east-1:${data.aws_caller_identity.current.account_id}:aqnku8akd0/dev/POST/*"
     },
     OneRule = {
       principal  = "events.amazonaws.com"
-      source_arn = "arn:aws:events:eu-west-1:${data.aws_caller_identity.current.account_id}:rule/RunDaily"
+      source_arn = "arn:aws:events:us-east-1:${data.aws_caller_identity.current.account_id}:rule/RunDaily"
     }
   }
 
@@ -164,7 +164,7 @@ module "lambda_function" {
     dynamodb = {
       effect    = "Allow",
       actions   = ["dynamodb:BatchWriteItem"],
-      resources = ["arn:aws:dynamodb:eu-west-1:052212379155:table/Test"]
+      resources = ["arn:aws:dynamodb:us-east-1:052212379155:table/Test"]
     },
     s3_read = {
       effect    = "Deny",
